@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Hyper World 3.unity
+    guid: c68a349a5e4491c4cbd4ab5f9fbe2131
+  - enabled: 1
+    path: Assets/Scenes/Hyper World 4.unity
+    guid: 4e9d72393c56a704fa4a5a67d84355cc
+  - enabled: 1
+    path: Assets/Scenes/Hyper World 5.unity
+    guid: a709481c11cd7f74c9c3da8719843be0
+  - enabled: 1
+    path: Assets/Scenes/Hyper World 6.unity
+    guid: 1889a3e3d17e4874ca30331b0458b557
+  m_configObjects:
+    Unity.XR.OpenVR.Settings: {fileID: 11400000, guid: 4fda4c3ffc605f14e8ebcb7d7e9d4696, type: 2}
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 1f372994503a5954c8587d9d6de7c26b, type: 2}

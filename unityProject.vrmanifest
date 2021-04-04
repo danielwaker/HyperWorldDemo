@@ -1,0 +1,16 @@
+{
+  "source": "Unity",
+  "applications": [
+    {
+      "app_key": "application.generated.unity.hyperengine2.0test.exe",
+      "launch_type": "url",
+      "url": "steam://launch/",
+      "action_manifest_path": "C:\\Users\\godun\\Documents\\GitHub\\HyperEngine 2.0 Test\\Assets\\StreamingAssets\\SteamVR\\actions.json",
+      "strings": {
+        "en_us": {
+          "name": "HyperEngine 2.0 Test [Testing]"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+    "name": "HyperAssembly",
+    "references": [
+        "GUID:ba171b3dd2a51234ab864770f99741a5",
+        "GUID:4aac2db583f21244887b663156ec5d3a",
+        "GUID:1fbf338ef6b952a448262a7ff7df5fe4",
+        "GUID:9bac448de04a4f6448fee1acc220e5a1",
+        "GUID:2476fd5d698aa614194466a3af5d192f",
+        "GUID:256e975f9c776644aa4d86bc0c894f33"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
