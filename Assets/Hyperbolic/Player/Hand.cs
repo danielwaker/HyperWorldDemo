@@ -17,6 +17,7 @@ public class Hand : MonoBehaviour
     private HyperObject ho;
     private WarpCollider wc;
     public GameObject map;
+    private WorldBuilder wb;
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +29,7 @@ public class Hand : MonoBehaviour
         right.AddOnStateUpListener(Directional, handInput);
         ho = GetComponent<HyperObject>();
         wc = GetComponent<WarpCollider>();
+        wb = FindObjectOfType<WorldBuilder>();
     }
 
     // Update is called once per frame
@@ -69,7 +71,7 @@ public class Hand : MonoBehaviour
 
     private void Trigger(SteamVR_Action_Boolean fromAction, SteamVR_Input_Sources fromSource)
     {
-        WorldBuilder.Tile[] tiles = FindObjectOfType<WorldBuilder>().SurroundingTiles(-HyperObject.worldGV);
+        WorldBuilder.Tile[] tiles = wb.SurroundingTiles(-HyperObject.worldGV);
         foreach (WorldBuilder.Tile s in tiles)
         {
             print("SURROUNDING TILE: " + s.coord);
@@ -82,8 +84,8 @@ public class Hand : MonoBehaviour
     private void Directional(SteamVR_Action_Boolean fromAction, SteamVR_Input_Sources fromSource)
     {
         string dir = fromAction.fullPath.Split('/').Last();
-        WorldBuilder.Tile[] tiles = FindObjectOfType<WorldBuilder>().SurroundingTiles(-HyperObject.worldGV);
-        var nearest = FindObjectOfType<WorldBuilder>().NearestTile(-HyperObject.worldGV);
+        WorldBuilder.Tile[] tiles = wb.SurroundingTiles(-HyperObject.worldGV);
+        var nearest = wb.NearestTile(-HyperObject.worldGV);
 
         WorldBuilder.Tile up = default;
         WorldBuilder.Tile down = default;
@@ -101,19 +103,19 @@ public class Hand : MonoBehaviour
             var t = tiles[i];
             List<WorldBuilder.Tile> temp = tiles.ToList();
             temp.RemoveAt(i);
-            if (t.coord == "U" + nearest.coord)
+            if (t.coord == "U" + nearest.coord || t.coord == nearest.coord + "U")
             {
                 up = t;
             }
-            else if (t.coord == "R" + nearest.coord)
+            else if (t.coord == "R" + nearest.coord || t.coord == nearest.coord + "R")
             {
                 right = t;
             }
-            else if (t.coord == "L" + nearest.coord)
+            else if (t.coord == "L" + nearest.coord || t.coord == nearest.coord + "L")
             {
                 left = t;
             }
-            else if (t.coord == "D" + nearest.coord)
+            else if (t.coord == "D" + nearest.coord || t.coord == nearest.coord + "D")
             {
                 down = t;
             }

@@ -622,7 +622,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 20137509623078008, guid: 72fdf8d2e01c9c9449aa48bca5a04e57, type: 3}
       propertyPath: far clip plane
-      value: 10.01
+      value: 1.01
       objectReference: {fileID: 0}
     - target: {fileID: 114683464652271422, guid: 72fdf8d2e01c9c9449aa48bca5a04e57, type: 3}
       propertyPath: mapCam

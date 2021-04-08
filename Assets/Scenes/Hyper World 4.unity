@@ -459,7 +459,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bounryAO: 0.62
   fog: 0
-  enableStereo: 1
+  enableStereo: 0
   scaleTanK: 1
   lattice3D: 0
   debug_tile: {fileID: 1010955766223932, guid: 8bd2951d860f0094fa6593f4a990d3ce, type: 3}
@@ -579,6 +579,10 @@ PrefabInstance:
     - target: {fileID: 1213464075859502, guid: 72fdf8d2e01c9c9449aa48bca5a04e57, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 1622403008383482, guid: 72fdf8d2e01c9c9449aa48bca5a04e57, type: 3}
+      propertyPath: m_TagString
+      value: MainCamera
       objectReference: {fileID: 0}
     - target: {fileID: 4279067317253862, guid: 72fdf8d2e01c9c9449aa48bca5a04e57, type: 3}
       propertyPath: m_RootOrder

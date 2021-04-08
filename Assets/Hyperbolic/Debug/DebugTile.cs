@@ -35,6 +35,13 @@ public class DebugTile : MonoBehaviour {
             letterRenderer.GetPropertyBlock(propertyBlock);
             propertyBlock.SetTexture("_MainTex", curTex);
             letterRenderer.SetPropertyBlock(propertyBlock);
+            /*GameObject g;
+            if (coord == "LLD")
+            {
+                g = Instantiate(letterObj, GameObject.Find("tile_").transform);
+                g.GetComponent<Renderer>().SetPropertyBlock(propertyBlock);
+            }*/
+            
         }
     }
 }

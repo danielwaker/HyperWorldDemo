@@ -63,6 +63,7 @@ public class Player : MonoBehaviour {
     [HideInInspector] public Vector3 outputDelta;
     private AsyncOperation sceneUp;
     private AsyncOperation sceneDown;
+    private WorldBuilder wb;
 
 #if UNITY_EDITOR
     private static string placeNPCText; //Debug
@@ -100,6 +101,8 @@ public class Player : MonoBehaviour {
             sceneDown = SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex - 1);
             sceneDown.allowSceneActivation = false;
         }*/
+
+        wb = FindObjectOfType<WorldBuilder>();       
     }
 
     private void OnDrawGizmos() {
@@ -232,7 +235,7 @@ public class Player : MonoBehaviour {
         if (InputManager.GetKeyDown(GameKey.DEBUG2)) {
             float ang = (xQuaternion * Quaternion.Inverse(HyperObject.worldGV.gyr)).eulerAngles.y;
             Vector3 v = -HyperObject.worldGV.vec;
-            WorldBuilder.Tile nearest = FindObjectOfType<WorldBuilder>().NearestTile(-HyperObject.worldGV);
+            WorldBuilder.Tile nearest = wb.NearestTile(-HyperObject.worldGV);
             Debug.Log("tile: " + nearest.coord + " " + nearest.tileName + " " + ang + " [" + v.x + " " + v.y + " " + v.z + "]");
         }
 #endif
@@ -257,7 +260,7 @@ public class Player : MonoBehaviour {
                 var pose = PoseDataSource.GetDataFromSource(TrackedPoseDriver.TrackedPose.Center, out Pose resultPose);
                 height = (resultPose.position.y-0.75f)*0.125f;
                 print("CAM: " + resultPose.rotation.eulerAngles);
-                print("NEAREST: " + FindObjectOfType<WorldBuilder>().NearestTile(-HyperObject.worldGV).coord);
+                print("NEAREST: " + wb.NearestTile(-HyperObject.worldGV).coord);
 
                 print("height" + height);
                 VR_delta = resultPose.position - previousVR_position;

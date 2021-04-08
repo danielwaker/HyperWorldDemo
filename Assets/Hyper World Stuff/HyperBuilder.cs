@@ -37,8 +37,15 @@ public class HyperBuilder : WorldBuilder
             return tile;
         }
         else
-        {            
-            return Instantiate(debug_tile);
+        {
+            GameObject d = Instantiate(debug_tile);
+            /*if (coord == "LLD")
+                d.tag = "find";
+            Instantiate(GameObject.FindGameObjectWithTag("find").
+            transform.Find("Letter(Clone)")
+            , GameObject.Find("tile_").transform);*/
+            //Instantiate(d.transform.Find("Letter(Clone)"), GameObject.Find("tile_").transform);
+            return d;
         }
     }
 }
