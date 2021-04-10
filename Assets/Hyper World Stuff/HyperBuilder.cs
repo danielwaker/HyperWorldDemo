@@ -26,6 +26,7 @@ public class HyperBuilder : WorldBuilder
         {
             GameObject tile = Instantiate(outer_tile);
             char noWall = coord[0];
+            char noWall2 = coord[4];
             if (noWall == 'L')
                 tile.transform.GetChild(1).gameObject.SetActive(false);
             else if (noWall == 'R')
@@ -34,6 +35,17 @@ public class HyperBuilder : WorldBuilder
                 tile.transform.GetChild(3).gameObject.SetActive(false);
             else if (noWall == 'U')
                 tile.transform.GetChild(4).gameObject.SetActive(false);
+            if (tileType == 4 && noWall != noWall2)
+            {
+                if (noWall2 == 'L')
+                    tile.transform.GetChild(1).gameObject.SetActive(false);
+                else if (noWall2 == 'R')
+                    tile.transform.GetChild(2).gameObject.SetActive(false);
+                else if (noWall2 == 'D')
+                    tile.transform.GetChild(3).gameObject.SetActive(false);
+                else if (noWall2 == 'U')
+                    tile.transform.GetChild(4).gameObject.SetActive(false);
+            }
             return tile;
         }
         else
