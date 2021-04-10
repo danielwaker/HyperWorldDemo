@@ -10,6 +10,7 @@ using Valve.VR;
 using System.Linq;
 using UnityEngine.XR;
 using UnityEngine.SceneManagement;
+using UnityEngine.Profiling;
 
 public class Player : MonoBehaviour {
     public const float HEAD_BOB_FREQ = 12.0f;
@@ -128,7 +129,7 @@ public class Player : MonoBehaviour {
     }
 
     void Update() {
-        Debug.Log(HyperObject.worldGV + "Player");
+        //Debug.Log(HyperObject.worldGV + "Player");
         //Update projection
         if (projTransition > 0.0f && projCur != projNew) {
             projTransition = Mathf.Max(projTransition - Time.deltaTime, 0.0f);
@@ -260,7 +261,7 @@ public class Player : MonoBehaviour {
                 var pose = PoseDataSource.GetDataFromSource(TrackedPoseDriver.TrackedPose.Center, out Pose resultPose);
                 height = (resultPose.position.y-0.75f)*0.125f;
                 print("CAM: " + resultPose.rotation.eulerAngles);
-                print("NEAREST: " + wb.NearestTile(-HyperObject.worldGV).coord);
+                //print("NEAREST: " + wb.NearestTile(-HyperObject.worldGV).coord);
 
                 print("height" + height);
                 VR_delta = resultPose.position - previousVR_position;
@@ -313,8 +314,10 @@ public class Player : MonoBehaviour {
                 }
             }
 
+            //Profiler.BeginSample("MyPieceOfCode");
             //Do collisions manually since dynamic meshes don't behave well with Unity physics.
             displacement = IteratedCollide(inputDelta, CollisionRadius(), out Vector3 sinY, 2);
+            //Profiler.EndSample();
 
             //Check if the player is grounded
             bool isGrounded = (HyperObject.worldGV.vec.y >= 0.0f || sinY.y >= MIN_WALK_SLOPE);
@@ -438,6 +441,7 @@ public class Player : MonoBehaviour {
         Vector3 delta = inDelta;
         sinY = Vector3.zero;
         for (int i = 0; i < iters; ++i) {
+            //Profiler.BeginSample("collide 1");
             var name = WCollider.Collide2(p1 + delta, r, out Vector3 useless, name: "Hand");
             if (name == "Up" && SceneManager.GetActiveScene().buildIndex < SceneManager.sceneCountInBuildSettings - 1)
             {
@@ -451,8 +455,13 @@ public class Player : MonoBehaviour {
                 //sceneUp = null;
                 //sceneDown.allowSceneActivation = true;
             }
+            //Profiler.EndSample();
+            //Profiler.BeginSample("collide 2");
             delta += WCollider.Collide(p1 + delta, r, out Vector3 bodySinY, name: "Hand");
+            //Profiler.EndSample();
+            //Profiler.BeginSample("collide 3");
             delta += WCollider.Collide(p2 + delta, r, out Vector3 headSinY, name: "Hand");
+            //Profiler.EndSample();
             sinY.x = Mathf.Max(sinY.x, bodySinY.x);
             sinY.y = Mathf.Max(sinY.y, bodySinY.y);
             sinY.z = Mathf.Min(sinY.z, headSinY.z);

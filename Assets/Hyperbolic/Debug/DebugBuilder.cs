@@ -8,10 +8,11 @@ public class DebugBuilder : WorldBuilder
     public static int RADIUS = 5;
     public GameObject debug_tile;
     public GameObject test_tile;
+    public int tile_type;
 
     public override int MaxExpansion()
     {
-        HM.SetTileType(6);
+        HM.SetTileType(tile_type);
         return RADIUS;
     }
 

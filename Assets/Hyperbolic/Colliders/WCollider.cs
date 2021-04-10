@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Profiling;
 
 public abstract class WCollider {
     public static List<WCollider> AllColliders = new List<WCollider>();
@@ -28,7 +29,9 @@ public abstract class WCollider {
         int z;
         float padR2 = r * r * GROUND_PAD_RATIO * GROUND_PAD_RATIO;
         for (int i = ix_from; i < ix_to; ++i) {
+            //Profiler.BeginSample("c o l ide");
             WCollider c = AllColliders[i];
+            //Debug.Log("daname: " + c.ho.name + i);
             if (c.ho.name != name)
             {
                 if (useCache)
@@ -39,7 +42,7 @@ public abstract class WCollider {
                 else
                 {
                     delta = c.ClosestPoint(p, c.ho.localGV + gv) - p;
-                    Debug.Log("DELTA: " + delta + " LOCAL GV: " + (gv.Equals(new GyroVector(0f, 0f, 0f))));
+                    //Debug.Log("DELTA: " + delta + " LOCAL GV: " + (gv.Equals(new GyroVector(0f, 0f, 0f))));
                 }
                 float distSq = delta.sqrMagnitude;
                 if (distSq < padR2)
@@ -58,6 +61,7 @@ public abstract class WCollider {
                         z = 0;
                 }
             }
+            //Profiler.EndSample();
         }
         if (displacement != Vector3.zero)
             z = 0;
@@ -85,7 +89,7 @@ public abstract class WCollider {
                 else
                 {
                     delta = c.ClosestPoint(p, c.ho.localGV + gv) - p;
-                    Debug.Log("DELTA: " + delta + " LOCAL GV: " + (gv.Equals(new GyroVector(0f, 0f, 0f))));
+                    //Debug.Log("DELTA: " + delta + " LOCAL GV: " + (gv.Equals(new GyroVector(0f, 0f, 0f))));
                 }
                 float distSq = delta.sqrMagnitude;
                 if (distSq < padR2)

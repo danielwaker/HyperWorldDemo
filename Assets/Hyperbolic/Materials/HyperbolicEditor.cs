@@ -56,7 +56,7 @@ public class HyperbolicEditor : ShaderGUI
         // Update the material with the new values
         if (EditorGUI.EndChangeCheck()) {
             for (int i = 0; i < newKeyWords.Count; ++i) {
-                Debug.Log(newKeyWords[i]);
+                //Debug.Log(newKeyWords[i]);
             }
             targetMat.shaderKeywords = newKeyWords.ToArray();
             EditorUtility.SetDirty(targetMat);

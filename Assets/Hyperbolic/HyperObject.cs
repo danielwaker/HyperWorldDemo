@@ -45,7 +45,7 @@ public class HyperObject : MonoBehaviour
         camHeightID = Shader.PropertyToID("_CamHeight");
         debugColorID = Shader.PropertyToID("_DebugColor");
         tanKHeightID = Shader.PropertyToID("_TanKHeight");
-        Debug.Log("this is the starting " + transform.name + hyperPos);
+        //Debug.Log("this is the starting " + transform.name + hyperPos);
         //Copy starting position into the local gyrovector.
         localGV.vec = hyperPos;
     }

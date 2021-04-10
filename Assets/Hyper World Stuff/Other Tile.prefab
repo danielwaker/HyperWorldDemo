@@ -78,7 +78,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1010955766223932}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 36edd6c31e21aa940a7dd83456559e5f, type: 3}
   m_Name: 
@@ -190,6 +190,7 @@ GameObject:
   - component: {fileID: 7274354302214304210}
   - component: {fileID: 1814065931754753606}
   - component: {fileID: 8970636619844664262}
+  - component: {fileID: 8265101241095534447}
   m_Layer: 0
   m_Name: Bottom Wall
   m_TagString: Untagged
@@ -260,6 +261,23 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &8265101241095534447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2836401549418080238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fa947a3f6c43e3499212418891d4cc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boundingBoxes: []
+  boundingSpheres: []
+  boundingCylinders: []
+  boundingTriangles: []
+  boundingPlanes: []
 --- !u!1 &6011668967831408614
 GameObject:
   m_ObjectHideFlags: 0
@@ -271,6 +289,7 @@ GameObject:
   - component: {fileID: 7949188986023503453}
   - component: {fileID: 1899185227912332789}
   - component: {fileID: 8025008458832006932}
+  - component: {fileID: 5000734958497297047}
   m_Layer: 0
   m_Name: Top Wall
   m_TagString: Untagged
@@ -341,6 +360,23 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &5000734958497297047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6011668967831408614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fa947a3f6c43e3499212418891d4cc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boundingBoxes: []
+  boundingSpheres: []
+  boundingCylinders: []
+  boundingTriangles: []
+  boundingPlanes: []
 --- !u!1 &6080152530762996088
 GameObject:
   m_ObjectHideFlags: 0
@@ -352,6 +388,7 @@ GameObject:
   - component: {fileID: 6176026805785815073}
   - component: {fileID: 3949167540710085772}
   - component: {fileID: 2231383067358945932}
+  - component: {fileID: 3347390586354631949}
   m_Layer: 0
   m_Name: Left Wall
   m_TagString: Untagged
@@ -422,6 +459,23 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &3347390586354631949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6080152530762996088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fa947a3f6c43e3499212418891d4cc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boundingBoxes: []
+  boundingSpheres: []
+  boundingCylinders: []
+  boundingTriangles: []
+  boundingPlanes: []
 --- !u!1 &6301152834597505797
 GameObject:
   m_ObjectHideFlags: 0
@@ -433,6 +487,7 @@ GameObject:
   - component: {fileID: 3368663144806681637}
   - component: {fileID: 331929083679450443}
   - component: {fileID: 7102620592136650143}
+  - component: {fileID: 4611719110097571587}
   m_Layer: 0
   m_Name: Right Wall
   m_TagString: Untagged
@@ -503,3 +558,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &4611719110097571587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6301152834597505797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fa947a3f6c43e3499212418891d4cc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boundingBoxes: []
+  boundingSpheres: []
+  boundingCylinders: []
+  boundingTriangles: []
+  boundingPlanes: []

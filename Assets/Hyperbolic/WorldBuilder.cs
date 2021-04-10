@@ -14,6 +14,7 @@ public abstract class WorldBuilder : MonoBehaviour {
     public bool lattice3D = false;
     public static float globalBounryAO;
     public static float globalFog;
+    [HideInInspector] public static Tile nearest;
 
     public struct Tile {
         public Tile(GyroVector _gv, string _coord, string _tileName) {
@@ -195,6 +196,7 @@ public abstract class WorldBuilder : MonoBehaviour {
 
     private void Update()
     {
+        nearest = NearestTile(-HyperObject.worldGV);
         /*if (InputManager.GetKeyUp(GameKey.DEBUG2))
         {
             foreach (Tile t in tiles)
