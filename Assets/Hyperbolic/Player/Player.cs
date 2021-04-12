@@ -260,10 +260,10 @@ public class Player : MonoBehaviour {
             {
                 var pose = PoseDataSource.GetDataFromSource(TrackedPoseDriver.TrackedPose.Center, out Pose resultPose);
                 height = (resultPose.position.y-0.75f)*0.125f;
-                print("CAM: " + resultPose.rotation.eulerAngles);
+                //print("CAM: " + resultPose.rotation.eulerAngles);
                 //print("NEAREST: " + wb.NearestTile(-HyperObject.worldGV).coord);
 
-                print("height" + height);
+                //print("height" + height);
                 VR_delta = resultPose.position - previousVR_position;
                 if (Mathf.Abs(VR_delta.x) > 0.001f)
                 {
@@ -283,12 +283,12 @@ public class Player : MonoBehaviour {
                 {
                     dy = 0;
                 }
-                print("VR X: " + VR_delta.x + " VR Y: " + VR_delta.y);
-                print("VR POS: " + resultPose.position);
-                print("VR DELTA: " + VR_delta);
+                //print("VR X: " + VR_delta.x + " VR Y: " + VR_delta.y);
+                //print("VR POS: " + resultPose.position);
+                //print("VR DELTA: " + VR_delta);
                 previousVR_position = resultPose.position;
             }
-            print("dx: " + dx + " dy: " + dy);
+            //print("dx: " + dx + " dy: " + dy);
 
             float smooth_dx = Mathf.Pow(2.0f, -Time.deltaTime / LAG_MOVE_X);
             float smooth_dy = Mathf.Pow(2.0f, -Time.deltaTime / LAG_MOVE_Y);
@@ -299,7 +299,7 @@ public class Player : MonoBehaviour {
                 //if (dx != 0) smoothDX *= dx * (1 + Mathf.Abs(VR_delta.x * 100));
                 //if (dy != 0) smoothDY *= dy * (1 + Mathf.Abs(VR_delta.y * 100));
             }
-            print("sm X: " + smoothDX + " sm Y: " + smoothDY);
+            //print("sm X: " + smoothDX + " sm Y: " + smoothDY);
 
             inputDelta = Vector3.ClampMagnitude(new Vector3(smoothDX, 0.0f, smoothDY), 1.0f);
             inputDelta = HM.HyperTranslate(xRot * inputDelta * (walkingSpeed * height * Time.deltaTime));
@@ -355,7 +355,7 @@ public class Player : MonoBehaviour {
             HyperObject.worldGV.vec.y = Mathf.Min(HyperObject.worldGV.vec.y, 0.0f);
             HyperObject.worldGV.AlignUpVector();
 
-            print("WORLD: " + HyperObject.worldGV);
+            //print("WORLD: " + HyperObject.worldGV);
             /*if (InputManager.GetKeyDown(GameKey.DEBUG2))
             {
                 string[] tiles = FindObjectOfType<WorldBuilder>().SurroundingTiles(HyperObject.worldGV);

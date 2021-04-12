@@ -41,9 +41,9 @@ public class Hand : MonoBehaviour
         float heightLeft = Mathf.Log10(resultPoseRight.position.y - height) * 0.125f;
         var xLeft = (resultPoseRight.position.x - 0.5f) * 0.1f;
         var zLeft = (resultPoseRight.position.z - 0.5f) * 0.1f;
-        print("height left: " + heightLeft + " actual: " + resultPoseRight.position.y);
+        //print("height left: " + heightLeft + " actual: " + resultPoseRight.position.y);
         var handBefore = GetComponent<HyperObject>().localGV.vec;
-        print("MAG: " + (resultPoseRight.position - handBefore).magnitude);
+        //print("MAG: " + (resultPoseRight.position - handBefore).magnitude);
         //if ((resultPoseLeft.position - leftHand.GetComponent<HyperObject>().localGV.vec).magnitude > 0.0001f)
         {
             //Vector3 delta = WCollider.Collide(Vector3.zero, wc.boundingSpheres[0].radius, out Vector3 sinY2, false, -ho.localGV);
@@ -60,13 +60,13 @@ public class Hand : MonoBehaviour
             }
 
         }
-        print("HANDROTY" + transform.eulerAngles.y);
+        //print("HANDROTY" + transform.eulerAngles.y);
         /*leftHand.GetComponent<HyperObject>().localGV = new GyroVector(
             Mathf.Cos(Mathf.Deg2Rad * resultPose.rotation.eulerAngles.x) * 0.03f,
             heightLeft,
             Mathf.Sin(Mathf.Deg2Rad * resultPose.rotation.eulerAngles.z) * 0.03f);*/
-        print("HAND: " + ho.localGV);
-        print("HAND DELTA: " + (ho.localGV - handBefore));
+        //print("HAND: " + ho.localGV);
+        //print("HAND DELTA: " + (ho.localGV - handBefore));
     }
 
     private void Trigger(SteamVR_Action_Boolean fromAction, SteamVR_Input_Sources fromSource)
