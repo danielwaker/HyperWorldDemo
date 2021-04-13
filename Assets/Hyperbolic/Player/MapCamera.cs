@@ -5,7 +5,11 @@ using UnityEngine;
 [RequireComponent(typeof(Camera))]
 public class MapCamera : MonoBehaviour {
     public bool squareAspectRatio = true;
+    public Shader euclidean;
+    public Shader spherical;
+    public Shader hyperbolic;
     private Camera cam;
+    private bool isEuclidean;
 
 	void Start() {
         //Get the camera component and update aspect ratio
@@ -16,16 +20,18 @@ public class MapCamera : MonoBehaviour {
 
         //Replace the shader with a Euclidean camera axis
         if (HM.K > 0.0f) {
-            cam.SetReplacementShader(Shader.Find("Custom/S2xEShader"), "HyperRenderType");
+            cam.SetReplacementShader(spherical, "HyperRenderType");
         } else if (HM.K < 0.0f) {
-            cam.SetReplacementShader(Shader.Find("Custom/H2xEShader"), "HyperRenderType");
+            cam.SetReplacementShader(hyperbolic, "HyperRenderType");
         } else {
-            cam.SetReplacementShader(Shader.Find("Custom/EuclideanShader"), "HyperRenderType");
+            cam.SetReplacementShader(euclidean, "HyperRenderType");
+            isEuclidean = true;
         }
     }
 
     void Update() {
         //This equation keeps the camera zoomed and centered well in all projections
-        cam.orthographicSize = 0.6f + 0.5f * (HyperObject.worldInterp - 1.0f) * (HyperObject.worldInterp - 1.0f);
+        //if (!isEuclidean) 
+            cam.orthographicSize = 0.6f + 0.5f * (HyperObject.worldInterp - 1.0f) * (HyperObject.worldInterp - 1.0f);
     }
 }

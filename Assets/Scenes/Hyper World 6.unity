@@ -459,9 +459,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bounryAO: 0.62
   fog: 0
-  enableStereo: 1
+  enableStereo: 0
   scaleTanK: 1
   lattice3D: 0
+  euclidean: {fileID: 4800000, guid: a3a256452b8d87e4481ca2e4b0d8583e, type: 3}
+  spherical: {fileID: 4800000, guid: f3c99d2e82671074699108bb9aa1a75d, type: 3}
+  hyperbolic: {fileID: 4800000, guid: 49d3d38fa24077140bad500222a8931e, type: 3}
   debug_tile: {fileID: 1010955766223932, guid: 8bd2951d860f0094fa6593f4a990d3ce, type: 3}
   center_tile: {fileID: 1993960811223156295, guid: 75019df44ef7cf546a8d6ee2dc313dca, type: 3}
   outer_tile: {fileID: 1010955766223932, guid: db06428a8c32f9d4998b4a9aa846b18f, type: 3}

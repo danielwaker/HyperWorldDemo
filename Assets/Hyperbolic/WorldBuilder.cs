@@ -15,6 +15,9 @@ public abstract class WorldBuilder : MonoBehaviour {
     public static float globalBounryAO;
     public static float globalFog;
     [HideInInspector] public static Tile nearest;
+    public Shader euclidean;
+    public Shader spherical;
+    public Shader hyperbolic;
 
     public struct Tile {
         public Tile(GyroVector _gv, string _coord, string _tileName) {
@@ -174,9 +177,9 @@ public abstract class WorldBuilder : MonoBehaviour {
                 rightCam.SetReplacementShader(Shader.Find("Custom/EuclideanShaderRight"), "HyperRenderType");
             }
         } else if (HM.K > 0.0f) {
-            cam.SetReplacementShader(Shader.Find("Custom/SphericalShader"), "HyperRenderType");
+            cam.SetReplacementShader(spherical, "HyperRenderType");
         } else if (HM.K == 0.0f) {
-            cam.SetReplacementShader(Shader.Find("Custom/EuclideanShader"), "HyperRenderType");
+            cam.SetReplacementShader(euclidean, "HyperRenderType");
         }
 
         //Draw the H2xE or S2xE map in the editor while playing to avoid camera issues 

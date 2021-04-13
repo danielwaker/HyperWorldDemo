@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Object 1
-  m_Shader: {fileID: 4800000, guid: 86373e6fd169bfc4fbcc33986e341498, type: 3}
+  m_Name: Object Test Sph
+  m_Shader: {fileID: 4800000, guid: f3c99d2e82671074699108bb9aa1a75d, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0

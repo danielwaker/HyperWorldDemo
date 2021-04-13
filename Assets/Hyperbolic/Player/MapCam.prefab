@@ -87,6 +87,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c089b414785d8264e8f2a0bfa713321e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  squareAspectRatio: 1
+  euclidean: {fileID: 4800000, guid: a3a256452b8d87e4481ca2e4b0d8583e, type: 3}
+  spherical: {fileID: 4800000, guid: 946949710195fc040afbd68ba8522eae, type: 3}
+  hyperbolic: {fileID: 4800000, guid: 4c6f7bb2ecab1fa46a15a06f10f86dba, type: 3}
 --- !u!1 &5757772041607882918
 GameObject:
   m_ObjectHideFlags: 0

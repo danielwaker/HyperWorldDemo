@@ -449,7 +449,7 @@ public class Player : MonoBehaviour {
                 //sceneDown = null;
                 //sceneUp.allowSceneActivation = true;
             }
-            else if (name == "Down" && SceneManager.GetActiveScene().buildIndex > 0)
+            else if (name == "Down" && SceneManager.GetActiveScene().buildIndex > 1)
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
                 //sceneUp = null;

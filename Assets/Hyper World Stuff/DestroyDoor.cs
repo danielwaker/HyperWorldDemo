@@ -8,7 +8,7 @@ public class DestroyDoor : MonoBehaviour
 
     private void Start()
     {
-        if (SceneManager.GetActiveScene().buildIndex != 0)
+        if (SceneManager.GetActiveScene().buildIndex > 1)
         {
             var wc = gameObject.transform.GetChild(0).gameObject.AddComponent<WarpCollider>();
             wc.boundingBoxes = new WarpCollider.Box[1];
