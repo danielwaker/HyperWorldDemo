@@ -6,6 +6,8 @@ public class WallCollisions : MonoBehaviour
 {
     private WorldBuilder wb;
     private bool entered;
+    private static bool globalEntered;
+    private int walls;
 
     private void Start()
     {
@@ -16,14 +18,17 @@ public class WallCollisions : MonoBehaviour
     void Update()
     {
         WorldBuilder.Tile nearest = WorldBuilder.nearest;
-        if (gameObject.name == "tile_" + nearest.coord && !entered)
+        if (gameObject.name == "tile_" + nearest.coord && !entered && !globalEntered)
         {
             entered = true;
+            globalEntered = true;
+            //Debug.Log("allcolliders start start: " + WCollider.AllColliders.Count);
             for (int i = 1; i < 5; i++)
             {
-                var test = WCollider.AllColliders.Count;
+                //var test = WCollider.AllColliders.Count;
                 if (gameObject.transform.GetChild(i).gameObject.activeSelf)
                 {
+                    walls++;
                     var wc = gameObject.transform.GetChild(i).gameObject.GetComponent<WarpCollider>();
                     wc.boundingBoxes = new WarpCollider.Box[1];
                     wc.boundingBoxes[0] = new WarpCollider.Box();
@@ -31,13 +36,15 @@ public class WallCollisions : MonoBehaviour
                     wc.GenerateColliders();
                 }
             }
+            //Debug.Log("allcolliders start end: " + WCollider.AllColliders.Count);
+            //Debug.Log("walls start: " + walls);
         }
-        else if (gameObject.name != "tile_" + nearest.coord && entered)
+        else if (gameObject.name != "tile_" + nearest.coord && entered && globalEntered)
         {
-            entered = false;
+            //Debug.Log("allcolliders end start: " + WCollider.AllColliders.Count);
             var test = WCollider.AllColliders.Count;
-            int index = test - 3 * 12;
-            int count = 3 * 12;
+            int index = test - walls * 12;
+            int count = walls * 12;
             WCollider.AllColliders.RemoveRange(index, count);
             for (int i = 1; i < 5; i++)
             {
@@ -49,6 +56,10 @@ public class WallCollisions : MonoBehaviour
                     wc.GenerateColliders();
                 }
             }
+            walls = 0;
+            //Debug.Log("allcolliders end end: " + WCollider.AllColliders.Count);
+            entered = false;
+            globalEntered = false;
         }
     }
 }
